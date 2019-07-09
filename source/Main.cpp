@@ -15,13 +15,13 @@ using namespace std;
 template <typename T>
 int binary_search(const vector<T> &items, int first, int last, T target) {
 	int pivot = ( (last - first) / 2 ) + first;
-    if(last < first){ 
+    if(last < first){ //if pass each other
         return -1;
-    } else if((items[pivot] == target)){
+    } else if((items[pivot] == target)){// if target found
         return pivot;
-    }else if(items[pivot] > target){
+    }else if(items[pivot] > target){// if val is greater then target search left
         return binary_search(items, first, pivot-1, target);
-    }else if(items[pivot] < target){//case 3
+    }else if(items[pivot] < target){// if val is less then target search right
         return binary_search(items, pivot+1, last, target);
     }
 }
